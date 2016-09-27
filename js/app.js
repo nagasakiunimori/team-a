@@ -35,7 +35,7 @@ function App() {
         // 検索条件に合致する物件のリストを取得
         var bukkenInfoList = dataManager.search(cond);
         // 物件リストの各物件のピンを地図上に立てる
-        //bukkenViewManager.update(bukkenInfoList);
+        bukkenViewManager.update(bukkenInfoList);
 
         var heatmapData = [];
 
@@ -45,7 +45,7 @@ function App() {
         }
         var heatmap = new google.maps.visualization.HeatmapLayer({
             data: heatmapData,
-            radius: 80,//半径
+            radius: 80, //半径
             //gradient: []
         });
         heatmap.setMap(map);
