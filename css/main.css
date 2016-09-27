@@ -157,3 +157,41 @@
   text-align: left;
 
 }
+
+/*スライダーのための追加*/
+.js-slider{
+  position:relative;
+  width:300px;
+  height:20px;
+}
+.js-slider div{
+  background:#ddd;
+  height:3px;
+  border:1px inset #aaa;
+  position:relative;
+  top:12px;
+  font-size:0px;
+}
+.js-slider input{
+  position:absolute;
+  width:15px;
+  height:20px;
+  display:block;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.3);
+    margin: 0;
+    border-bottom: 1px solid #000;
+    display: flex;
+}
+
+.header_left_item {
+    margin-right: auto;
+    font-size: 1.5rem;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+}
