@@ -67,8 +67,8 @@ function FormManager() {
         chinryo_from,
         chinryo_to,
         madori,
-        ekitoho
-        bukkenType,
+        ekitoho,
+        bukkenType
     ];
 
     var clicked = false;
