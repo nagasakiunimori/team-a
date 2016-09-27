@@ -128,6 +128,9 @@ function BukkenDataLoader() {
         }
         // 間取り。like 1K、1R、2LDK
         data.madori = rawData.madori_name;
+        // 駅徒歩。
+        data.ekitoho = rawData.kotsu_ekitoho_1;
+        
         return data;
     }
 
