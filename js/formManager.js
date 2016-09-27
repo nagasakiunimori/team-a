@@ -22,6 +22,8 @@ function FormManager() {
     var chinryo_from = new FormTextNumber('chinryo_from', 'chinryo.from');
     var chinryo_to = new FormTextNumber('chinryo_to', 'chinryo.to');
     var madori = new FormCheckboxList('madori', 'madori');
+    var ekitoho = new FormTextNumber('ekitoho', 'ekitoho.to');
+    
     var forms = [
         chikunensu,
         sikikin,
@@ -29,6 +31,7 @@ function FormManager() {
         chinryo_from,
         chinryo_to,
         madori,
+        ekitoho
     ];
 
     var clicked = false;

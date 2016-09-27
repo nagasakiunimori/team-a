@@ -112,7 +112,8 @@ function generateHTMLElement(bukkenInfo) {
     innerHTML = innerHTML.replace('<#shikikin>', bukkenInfo.shikikin);
     innerHTML = innerHTML.replace('<#reikin>', bukkenInfo.reikin);
     innerHTML = innerHTML.replace('<#madori>', bukkenInfo.madori);
-
+    innerHTML = innerHTML.replace('<#ekitoho>', bukkenInfo.ekitoho);
+    
     element.innerHTML = innerHTML;
     return element;
 }
