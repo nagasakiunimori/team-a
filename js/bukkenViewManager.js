@@ -37,6 +37,7 @@ function Pin(bukkenInfo, map) {
         position: new google.maps.LatLng(bukkenInfo.lat, bukkenInfo.lng)
     });
 
+
     // 地図上のマーカーがクリックされた際に呼ばれるイベントハンドラの設定
     google.maps.event.addListener(marker, 'click', onClick.bind(this));
 

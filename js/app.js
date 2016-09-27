@@ -18,7 +18,6 @@ function App() {
     var formManager = new FormManager();
     var bukkenViewManager = new BukkenViewManager(map);
 
-
     // 検索ボタンが押されたかどうかを50msごとに監視
     setInterval('app.watchButtonClicked();', 50);
 
@@ -26,7 +25,7 @@ function App() {
     /**
      * 検索ボタンが押されていれば地図を更新する
      */
-    this.watchButtonClicked = function() {
+    this.watchButtonClicked = function () {
         // 検索ボタンが押されていなければ何もしない
         if (!formManager.isClicked()) return;
 
@@ -35,9 +34,21 @@ function App() {
 
         // 検索条件に合致する物件のリストを取得
         var bukkenInfoList = dataManager.search(cond);
-
         // 物件リストの各物件のピンを地図上に立てる
-        bukkenViewManager.update(bukkenInfoList);
+        //bukkenViewManager.update(bukkenInfoList);
+
+        var heatmapData = [];
+
+        for (var bukken of bukkenInfoList) {
+            heatmapData.push(new google.maps.LatLng(bukken.lat, bukken.lng));
+            console.log(bukken.lat + " " + bukken.lng);
+        }
+        var heatmap = new google.maps.visualization.HeatmapLayer({
+            data: heatmapData,
+            radius: 80,//半径
+            //gradient: []
+        });
+        heatmap.setMap(map);
     }
 }
 
