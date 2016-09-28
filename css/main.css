@@ -239,7 +239,7 @@ header a {
 
 #volumeSlider .slider-selection {
     background: #BABABA;
-    min-height: 110px;
+    min-height: 11px;
     font-size: 12px;
     border-width: 2px;
     border-color: black;
