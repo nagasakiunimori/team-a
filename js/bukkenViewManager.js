@@ -7,13 +7,13 @@
  */
 function BukkenViewManager(map) {
     //================== コンストラクタ ==================//
-    var pins = [];   // ピンのオブジェクトの配列
+    var pins = []; // ピンのオブジェクトの配列
 
     //===================== メソッド =====================//
     /**
      * 物件情報のリストを受け取り、ピンを立てる。
      */
-    this.update = function(bukkenInfoList) {
+    this.update = function (bukkenInfoList) {
         // pinsの初期化
         for (var pin of pins) {
             pin.del();
@@ -24,7 +24,16 @@ function BukkenViewManager(map) {
         for (var bukkenInfo of bukkenInfoList) {
             pins.push(new Pin(bukkenInfo, map));
         }
+        // 検索した物件情報をリストで表示
+        var subElement = document.getElementById('bukken_subList');
+        subElement.innerHTML = '<div>検索した物件</div>';
+        for (var bukkenInfo of bukkenInfoList) {
+            insertHTMLElement_subList('bukken_subList', generateHTMLElement_subList(bukkenInfo));
+        }
+
     }
+
+
 }
 
 /**
@@ -32,8 +41,9 @@ function BukkenViewManager(map) {
  */
 function Pin(bukkenInfo, map) {
     //================== コンストラクタ ==================//
-    var marker = new google.maps.Marker({     // Google Map上のマーカーのオブジェクト
+    var marker = new google.maps.Marker({ // Google Map上のマーカーのオブジェクト
         map: map,
+        icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png',
         position: new google.maps.LatLng(bukkenInfo.lat, bukkenInfo.lng)
     });
 
@@ -45,7 +55,7 @@ function Pin(bukkenInfo, map) {
     /**
      * マーカーの画像を設定する
      */
-    this.setIcon = function(url) {
+    this.setIcon = function (url) {
         marker.setIcon(url);
     }
 
@@ -58,7 +68,7 @@ function Pin(bukkenInfo, map) {
     }
 
     // pinを消す
-    this.del = function() {
+    this.del = function () {
         if (marker) {
             marker.setMap(null);
             delete marker;
@@ -114,7 +124,57 @@ function generateHTMLElement(bukkenInfo) {
     innerHTML = innerHTML.replace('<#reikin>', bukkenInfo.reikin);
     innerHTML = innerHTML.replace('<#madori>', bukkenInfo.madori);
     innerHTML = innerHTML.replace('<#ekitoho>', bukkenInfo.ekitoho);
-    
+
+    element.innerHTML = innerHTML;
+    return element;
+}
+
+function generateHTMLElement_subList(bukkenInfo) {
+    var element = document.createElement('div');
+    element.setAttribute('id', 'bukken_subList');
+    element.setAttribute('class', 'tatemono');
+
+    var innerHTML = '\
+            <div id="tatemono_name" class="tatemono-name"><#tatemono_name></div>\
+            <div id="bukken-image" class="image"></div>\
+            <div id="cotent" class="content-text">\
+                <table class="table">\
+                    <tr>\
+                        <td>築</td>\
+                        <td><#chikunensu></td>\
+                        <td>年</td>\
+                    </tr>\
+                    <tr>\
+                        <td>賃料</td>\
+                        <td><#chinryo></td>\
+                        <td>円</td>\
+                    </tr>\
+                    <tr>\
+                        <td>敷金</td>\
+                        <td><#shikikin></td>\
+                        <td>円</td>\
+                    </tr>\
+                    <tr>\
+                        <td>礼金</td>\
+                        <td><#reikin></td>\
+                        <td>円</td>\
+                    </tr>\
+                    <tr>\
+                        <td>間取り</td>\
+                        <td><#madori></td>\
+                    </tr>\
+                </table>\
+            </div>';
+
+    // 物件情報を置換
+    innerHTML = innerHTML.replace('<#tatemono_name>', escapeText(bukkenInfo.tatemono_name));
+    innerHTML = innerHTML.replace('<#chikunensu>', bukkenInfo.chikunensu);
+    innerHTML = innerHTML.replace('<#chinryo>', bukkenInfo.chinryo);
+    innerHTML = innerHTML.replace('<#shikikin>', bukkenInfo.shikikin);
+    innerHTML = innerHTML.replace('<#reikin>', bukkenInfo.reikin);
+    innerHTML = innerHTML.replace('<#madori>', bukkenInfo.madori);
+    innerHTML = innerHTML.replace('<#ekitoho>', bukkenInfo.ekitoho);
+
     element.innerHTML = innerHTML;
     return element;
 }
@@ -123,7 +183,7 @@ function generateHTMLElement(bukkenInfo) {
  * 特殊な意味を持つ文字をエスケープする
  */
 function escapeText(text) {
-    return text.replace(/[&'`"<>]/g, function(match) {
+    return text.replace(/[&'`"<>]/g, function (match) {
         return {
             '&': '&amp;',
             "'": '&#x27;',
@@ -140,6 +200,11 @@ function escapeText(text) {
  */
 function insertHTMLElement(id, element) {
     var target = document.getElementById(id);
-    target.innerHTML = '';
+    target.innerHTML = '<div>選択した物件</div>';
+    target.appendChild(element);
+}
+
+function insertHTMLElement_subList(id, element) {
+    var target = document.getElementById(id);
     target.appendChild(element);
 }
