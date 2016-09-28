@@ -24,7 +24,21 @@ function BukkenViewManager(map) {
         for (var bukkenInfo of bukkenInfoList) {
             pins.push(new Pin(bukkenInfo, map));
         }
+
+        var subElement = document.getElementById('bukken_subList');
+        var bukkenNameList = [];
+        for (var bukkenInfo of bukkenInfoList) {
+            var div = document.createElement('div');
+            div.innerHTML = bukkenInfo.tatemono_name;
+            subElement.appendChild(div);
+        }
+
+        var element = document.createElement('div');
+        element.setAttribute('id', 'bukken');
+        element.setAttribute('class', 'tatemono');
     }
+
+
 }
 
 /**
