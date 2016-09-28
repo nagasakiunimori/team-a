@@ -24,18 +24,13 @@ function BukkenViewManager(map) {
         for (var bukkenInfo of bukkenInfoList) {
             pins.push(new Pin(bukkenInfo, map));
         }
-
+        // 検索した物件情報をリストで表示
         var subElement = document.getElementById('bukken_subList');
-        var bukkenNameList = [];
+        subElement.innerHTML = '<div>検索した物件</div>';
         for (var bukkenInfo of bukkenInfoList) {
-            var div = document.createElement('div');
-            div.innerHTML = bukkenInfo.tatemono_name;
-            subElement.appendChild(div);
+            insertHTMLElement_subList('bukken_subList', generateHTMLElement_subList(bukkenInfo));
         }
 
-        var element = document.createElement('div');
-        element.setAttribute('id', 'bukken');
-        element.setAttribute('class', 'tatemono');
     }
 
 
@@ -134,6 +129,56 @@ function generateHTMLElement(bukkenInfo) {
     return element;
 }
 
+function generateHTMLElement_subList(bukkenInfo) {
+    var element = document.createElement('div');
+    element.setAttribute('id', 'bukken_subList');
+    element.setAttribute('class', 'tatemono');
+
+    var innerHTML = '\
+            <div id="tatemono_name" class="tatemono-name"><#tatemono_name></div>\
+            <div id="bukken-image" class="image"></div>\
+            <div id="cotent" class="content-text">\
+                <table class="table">\
+                    <tr>\
+                        <td>築</td>\
+                        <td><#chikunensu></td>\
+                        <td>年</td>\
+                    </tr>\
+                    <tr>\
+                        <td>賃料</td>\
+                        <td><#chinryo></td>\
+                        <td>円</td>\
+                    </tr>\
+                    <tr>\
+                        <td>敷金</td>\
+                        <td><#shikikin></td>\
+                        <td>円</td>\
+                    </tr>\
+                    <tr>\
+                        <td>礼金</td>\
+                        <td><#reikin></td>\
+                        <td>円</td>\
+                    </tr>\
+                    <tr>\
+                        <td>間取り</td>\
+                        <td><#madori></td>\
+                    </tr>\
+                </table>\
+            </div>';
+
+    // 物件情報を置換
+    innerHTML = innerHTML.replace('<#tatemono_name>', escapeText(bukkenInfo.tatemono_name));
+    innerHTML = innerHTML.replace('<#chikunensu>', bukkenInfo.chikunensu);
+    innerHTML = innerHTML.replace('<#chinryo>', bukkenInfo.chinryo);
+    innerHTML = innerHTML.replace('<#shikikin>', bukkenInfo.shikikin);
+    innerHTML = innerHTML.replace('<#reikin>', bukkenInfo.reikin);
+    innerHTML = innerHTML.replace('<#madori>', bukkenInfo.madori);
+    innerHTML = innerHTML.replace('<#ekitoho>', bukkenInfo.ekitoho);
+
+    element.innerHTML = innerHTML;
+    return element;
+}
+
 /**
  * 特殊な意味を持つ文字をエスケープする
  */
@@ -155,6 +200,11 @@ function escapeText(text) {
  */
 function insertHTMLElement(id, element) {
     var target = document.getElementById(id);
-    target.innerHTML = '';
+    target.innerHTML = '<div>選択した物件</div>';
+    target.appendChild(element);
+}
+
+function insertHTMLElement_subList(id, element) {
+    var target = document.getElementById(id);
     target.appendChild(element);
 }
