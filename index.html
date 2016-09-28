@@ -3,178 +3,61 @@
 
 <head>
     <meta charset="utf-8">
+    <!IEでも崩れないように>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="./css/main.css" rel="stylesheet">
+    <link href="./css/bootstrap-slider.css" rel="stylesheet">
+    <!Bootstranpの読み込み>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!順序替えたらダメ>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <title>物件Mapサンプル</title>
+    <title>インターンA班</title>
 </head>
 
 <body>
-
     <header>
-        <div class="header_left_item">
-            <form class="js-slider-form" onsubmit="return false;">
-                <div>築年数</div>
-                <input type="text" name="slider" id="slider1o" value="0">
-                <div id="slider1" class="js-slider">
-                    <div></div>
-                    <input type="button" value="">
-                </div>
-            </form>
-        </div>
-
-        <div class="header_left_item">
-            <a>
-                <form class="js-slider-form" onsubmit="return false;">
-                    <div>築年数</div>
-                    <input type="text" name="slider" id="slider1o" value="0">
-                    <div id="slider1" class="js-slider">
-                        <div></div>
-                        <input type="button" value="">
-                    </div>
-                </form>
-            </a>
-        </div>
-        <div class="header_left_item">
-            <a>
-                <form class="js-slider-form" onsubmit="return false;">
-                    <div>築年数</div>
-                    <input type="text" name="slider" id="slider1o" value="0">
-                    <div id="slider1" class="js-slider">
-                        <div></div>
-                        <input type="button" value="">
-                    </div>
-                </form>
-            </a>
-        </div>
-        <div class="header_left_item">
-            <a>
-                <form class="js-slider-form" onsubmit="return false;">
-                    <div>築年数</div>
-                    <input type="text" name="slider" id="slider1o" value="0">
-                    <div id="slider1" class="js-slider">
-                        <div></div>
-                        <input type="button" value="">
-                    </div>
-                </form>
-            </a>
-        </div>
-        <div class="header_left_item">
-            <a>
-                <form class="js-slider-form" onsubmit="return false;">
-                    <div>築年数</div>
-                    <input type="text" name="slider" id="slider1o" value="0">
-                    <div id="slider1" class="js-slider">
-                        <div></div>
-                        <input type="button" value="">
-                    </div>
-                </form>
-            </a>
-        </div>
-        <div class="header_left_item">
-            <a>
-                <form class="js-slider-form" onsubmit="return false;">
-                    <div>築年数</div>
-                    <input type="text" name="slider" id="slider1o" value="0">
-                    <div id="slider1" class="js-slider">
-                        <div></div>
-                        <input type="button" value="">
-                    </div>
-                </form>
-            </a>
-        </div>
+        <div>いい生活インターンA班</div>
     </header>
-
-    <div class="content-bar">
-        <div id="bukken" class="tatemono">
+    <div id="wrap">
+        <div id="slidebar">
+            <span>築年数</span>
+            <input type="text" data-slider-id="volumeSlider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltsip="hide" id="chikunennsuu"/>
+        </div>
+        <div id="slidebar">
+            <span>家賃上限</span>
+            <input type="text" data-slider-id="volumeSlider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltip="hide" id="jogen"/>
+        </div>
+        <div id="slidebar">
+            <span>家賃下限</span>
+            <!UIslider>
+            <input type="text" data-slider-id="volumeSlider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltip="hide" id="kagen"/>
+        </div>
+        <div id="slidebar">
+            <span>階数</span>
+            <!UIslider>
+            <input type="text" data-slider-id="volumeSlider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltip="hide" id="flore"/>
+        </div>
+        <div id="slidebar">
+            <span>駅徒歩</span>
+            <!UIslider>
+            <input type="text" data-slider-id="volumeSlider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltip="hide" id="toho"/>
+        </div>
+        <div id="map-canvas" class="map-embed">
+        </div>
+        <div class="content-bar">
+            <div id="bukken" class="tatemono"></div>
         </div>
     </div>
-    <div id="map-canvas" class="map-embed">
-    </div>
-    
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDf8MOuQbm82v-ykYavmr8Wh92EXl_B4bs&libraries=visualization"></script>
     <script src="./js/formManager.js"></script>
     <script src="./js/dataManager.js"></script>
     <script src="./js/bukkenViewManager.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/slider.js"></script>
-    
-    <footer>
-        <div class="header_left_item">
-            <div class="search-item">
-                <div class="list-left">間取り</div>
-                <div class="list-checkbox">
-                    <table>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="madori" value="1R"><span class="checkbox">ワンルーム</span>
-                            </td>
-                            <td>
-                                <input type="checkbox" name="madori" value="1K"><span class="checkbox">1K</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="madori" value="1DK"><span class="checkbox">1DK</span>
-                            </td>
-                            <td>
-                                <input type="checkbox" name="madori" value="1LDK"><span class="checkbox">1LDK</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="madori" value="2K"><span class="checkbox">2K</span>
-                            </td>
-                            <td>
-                                <input type="checkbox" name="madori" value="2DK"><span class="checkbox">2DK</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="madori" value="2LDK"><span class="checkbox">2LDK</span>
-                            </td>
-                            <td>
-                                <input type="checkbox" name="madori" value="3K"><span class="checkbox">3K</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="madori" value="3DK"><span class="checkbox">3DK</span>
-                            </td>
-                            <td>
-                                <input type="checkbox" name="madori" value="3LDK"><span class="checkbox">3LDK</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="madori" value="4DK"><span class="checkbox">4DK</span>
-                            </td>
-                            <td>
-                                <input type="checkbox" name="madori" value="4LDK"><span class="checkbox">4LDK</span>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="header_left_item">
-            <div class="search-item">
-                <div class="list-left">建物の種類</div>
-                <div class="list-checkbox">
-                    <table>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="bukken_type" value="マンション"><span class="checkbox">マンション</span>
-                            </td>
-                            <td>
-                                <input type="checkbox" name="bukken_type" value="アパート"><span class="checkbox">アパート</span>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <script src="./js/bootstrap-slider.js"></script>
 </body>
 
 </html>

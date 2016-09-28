@@ -3,42 +3,67 @@
 .content-box{
   margin-right: auto;
   margin-left : auto;
-  height:100vh; 
+  height:100px; 
   display: flex;
   flex-direction: row;
   justify-content: center;
  }
 
-.search-bar{
-  flex-direction: column;
-  flex: 1 0 260px;
-  /*width:260px;*/
-  height:99%; 
-  min-height: 960px;
-  float: left;
-  overflow: scroll;
-}
-
-.content-bar{
-  flex: 1 0 300px;
-  /*
+content-bar{
   flex-grow:1;
   flex-basis:300px;
-  */
   border-width: 1;
   min-height: 960px;
   height:99%; 
   flex-direction: column;
   overflow: scroll;
 }
+
 .map-embed{
-  flex: 20 1 auto;
-  /*
-  flex-grow:6; 
+  flex-grow:6;
   flex-basis:400px;
-  */
-  height:99%; 
-  min-height: 960px;
+  height:99%;
+  min-height: 480px;
+  width:1200px;
+}
+
+*スライダーのための追加*/
+.js-slider{
+  position:relative;
+  width:300px;
+  height:20px;
+}
+.js-slider div{
+  background:#ddd;
+  height:3px;
+  border:1px inset #aaa;
+  position:relative;
+  top:12px;
+  font-size:0px;
+}
+.js-slider input{
+  position:absolute;
+  width:15px;
+  height:20px;
+  display:block;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.3);
+    margin: 0;
+    padding: 0px;
+    border-bottom: 1px solid #000;
+    display: flex;
+}
+
+.header_left_item {
+    margin-right: auto;
+    font-size: 1.5rem;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
 }
 
 .list-left{
@@ -73,16 +98,6 @@
   width:70px;
   margin-right:10px;
   padding: 5px;
-}
-
-.search-item{
-  width: 300px;
-  float:left;
-  padding: 5px;
-}
-
-.search-button{
-  align:right;
 }
 
 .tag{
@@ -124,7 +139,7 @@
 }
 
 .tatemono-name{
-  text-align: center;
+  text-align: csenter;
   font-size: 12px;
   padding: 2px;
   margin-bottom: 3px;
@@ -146,52 +161,29 @@
 .checkbox{
   width: 50px;
   font-size: 12px;
-
 }
 
 .list-checkbox{
-
   float: left;
   width:160px;
   padding: 5px;
   text-align: left;
-
 }
 
-/*スライダーのための追加*/
-.js-slider{
-  position:relative;
-  width:300px;
-  height:20px;
-}
-.js-slider div{
-  background:#ddd;
-  height:3px;
-  border:1px inset #aaa;
-  position:relative;
-  top:12px;
-  font-size:0px;
-}
-.js-slider input{
-  position:absolute;
-  width:15px;
-  height:20px;
-  display:block;
+#wrap{
+    width:1500px;
+    margin-top:0px;
 }
 
-header {
-    background-color: rgba(0, 0, 0, 0.3);
-    margin: 0;
-    border-bottom: 1px solid #000;
-    display: flex;
+#slidebar{
+    margin-top:10px;
+    margin-bottom:40px;
+    width:200px;
+    display: inline-flex;
 }
 
-.header_left_item {
-    margin-right: auto;
-    font-size: 1.5rem;
-}
-
-header a {
-    text-decoration: none;
-    color: white;
+#bukkeninfo{
+    height: 70px;
+    width: 400px;
+    background-color:black;
 }
