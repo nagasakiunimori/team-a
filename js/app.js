@@ -26,7 +26,7 @@ function App() {
     /**
      * 検索ボタンが押されていれば地図を更新する
      */
-    this.watchButtonClicked = function() {
+    this.watchButtonClicked = function () {
         // 検索ボタンが押されていなければ何もしない
         if (!formManager.isClicked()) return;
 
@@ -34,7 +34,7 @@ function App() {
         var cond = formManager.getCond();
 
         // 検索条件に合致する物件のリストを取得
-        var bukkenInfoList = dataManager.search(cond);
+        bukkenInfoList = dataManager.search(cond);
 
         // 物件リストの各物件のピンを地図上に立てる
         bukkenViewManager.update(bukkenInfoList);
