@@ -48,6 +48,7 @@ function Pin(bukkenInfo, map) {
     //================== コンストラクタ ==================//
     var marker = new google.maps.Marker({ // Google Map上のマーカーのオブジェクト
         map: map,
+        icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png',
         position: new google.maps.LatLng(bukkenInfo.lat, bukkenInfo.lng)
     });
 
@@ -128,7 +129,6 @@ function generateHTMLElement(bukkenInfo) {
     innerHTML = innerHTML.replace('<#reikin>', bukkenInfo.reikin);
     innerHTML = innerHTML.replace('<#madori>', bukkenInfo.madori);
     innerHTML = innerHTML.replace('<#ekitoho>', bukkenInfo.ekitoho);
-    
 
     element.innerHTML = innerHTML;
     return element;
