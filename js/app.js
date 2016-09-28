@@ -34,6 +34,7 @@ function App() {
 
         // 検索条件に合致する物件のリストを取得
         var bukkenInfoList = dataManager.search(cond);
+
         // 物件リストの各物件のピンを地図上に立てる
         bukkenViewManager.update(bukkenInfoList);
 

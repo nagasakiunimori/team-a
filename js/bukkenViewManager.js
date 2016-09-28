@@ -7,13 +7,13 @@
  */
 function BukkenViewManager(map) {
     //================== コンストラクタ ==================//
-    var pins = [];   // ピンのオブジェクトの配列
+    var pins = []; // ピンのオブジェクトの配列
 
     //===================== メソッド =====================//
     /**
      * 物件情報のリストを受け取り、ピンを立てる。
      */
-    this.update = function(bukkenInfoList) {
+    this.update = function (bukkenInfoList) {
         // pinsの初期化
         for (var pin of pins) {
             pin.del();
@@ -24,7 +24,21 @@ function BukkenViewManager(map) {
         for (var bukkenInfo of bukkenInfoList) {
             pins.push(new Pin(bukkenInfo, map));
         }
+
+        var subElement = document.getElementById('bukken_subList');
+        var bukkenNameList = [];
+        for (var bukkenInfo of bukkenInfoList) {
+            var div = document.createElement('div');
+            div.innerHTML = bukkenInfo.tatemono_name;
+            subElement.appendChild(div);
+        }
+
+        var element = document.createElement('div');
+        element.setAttribute('id', 'bukken');
+        element.setAttribute('class', 'tatemono');
     }
+
+
 }
 
 /**
@@ -32,7 +46,7 @@ function BukkenViewManager(map) {
  */
 function Pin(bukkenInfo, map) {
     //================== コンストラクタ ==================//
-    var marker = new google.maps.Marker({     // Google Map上のマーカーのオブジェクト
+    var marker = new google.maps.Marker({ // Google Map上のマーカーのオブジェクト
         map: map,
         position: new google.maps.LatLng(bukkenInfo.lat, bukkenInfo.lng)
     });
@@ -45,7 +59,7 @@ function Pin(bukkenInfo, map) {
     /**
      * マーカーの画像を設定する
      */
-    this.setIcon = function(url) {
+    this.setIcon = function (url) {
         marker.setIcon(url);
     }
 
@@ -58,7 +72,7 @@ function Pin(bukkenInfo, map) {
     }
 
     // pinを消す
-    this.del = function() {
+    this.del = function () {
         if (marker) {
             marker.setMap(null);
             delete marker;
@@ -115,6 +129,7 @@ function generateHTMLElement(bukkenInfo) {
     innerHTML = innerHTML.replace('<#madori>', bukkenInfo.madori);
     innerHTML = innerHTML.replace('<#ekitoho>', bukkenInfo.ekitoho);
     
+
     element.innerHTML = innerHTML;
     return element;
 }
@@ -123,7 +138,7 @@ function generateHTMLElement(bukkenInfo) {
  * 特殊な意味を持つ文字をエスケープする
  */
 function escapeText(text) {
-    return text.replace(/[&'`"<>]/g, function(match) {
+    return text.replace(/[&'`"<>]/g, function (match) {
         return {
             '&': '&amp;',
             "'": '&#x27;',
