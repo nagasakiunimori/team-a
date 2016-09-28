@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="./css/main.css" rel="stylesheet">
     <link href="./css/bootstrap-slider.css" rel="stylesheet">
-    <!Bootstranpの読み込み>
+    <!Bootstrapの読み込み>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!順序替えたらダメ>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -22,34 +22,42 @@
         <div>いい生活インターンA班</div>
     </header>
     <div id="wrap">
-        <div id="slidebar">
+        <form <div id="slidebar">
             <span>築年数</span>
-            <input type="text" data-slider-id="volumeSlider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltsip="hide" id="chikunennsuu"/>
-        </div>
-        <div id="slidebar">
-            <span>家賃上限</span>
-            <input type="text" data-slider-id="volumeSlider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltip="hide" id="jogen"/>
-        </div>
-        <div id="slidebar">
-            <span>家賃下限</span>
-            <!UIslider>
-            <input type="text" data-slider-id="volumeSlider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltip="hide" id="kagen"/>
-        </div>
-        <div id="slidebar">
-            <span>階数</span>
-            <!UIslider>
-            <input type="text" data-slider-id="volumeSlider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltip="hide" id="flore"/>
-        </div>
-        <div id="slidebar">
-            <span>駅徒歩</span>
-            <!UIslider>
-            <input type="text" data-slider-id="volumeSlider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltip="hide" id="toho"/>
-        </div>
-        <div id="map-canvas" class="map-embed">
-        </div>
-        <div class="content-bar">
-            <div id="bukken" class="tatemono"></div>
-        </div>
+            <input type="text" data-slider-id="volumeSlider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" id="chikunennsuu" />
+            <span id="">Value: <span id="chikunenSliderVal">50</span></span>
+    </div>
+    <div id="slidebar">
+        <span>家賃上限</span>
+        <input type="text" data-slider-id="volumeSlider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltip="hide" id="jogen" />
+        <span id="">Value: <span id="jogenSliderVal">50</span></span>
+    </div>
+    <div id="slidebar">
+        <span>家賃下限</span>
+        <!UIslider>
+        <input type="text" data-slider-id="volumeSlider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltip="hide" id="kagen" />
+        <span id="">Value: <span id="kagenSliderVal">50</span></span>
+    </div>
+    <div id="slidebar">
+        <span>階数</span>
+        <!UIslider>
+        <input type="text" data-slider-id="volumeSlider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltip="hide" id="flore" />
+        <span id="">Value: <span id="floreSliderVal">50</span></span>
+    </div>
+    <div id="slidebar">
+        <span>駅徒歩</span>
+        <!UIslider>
+        <input type="text" data-slider-id="volumeSlider" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltip="hide" id="toho" />
+        <span id="">Value: <span id="tohoSliderVal">50</span></span>
+    </div>
+    <div id="slidebar">
+        <button id="search-button">検索</button>
+    </div>
+    <div id="map-canvas" class="map-embed">
+    </div>
+    <div class="content-bar">
+        <div id="bukken" class="tatemono"></div>
+    </div>
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDf8MOuQbm82v-ykYavmr8Wh92EXl_B4bs&libraries=visualization"></script>
     <script src="./js/formManager.js"></script>

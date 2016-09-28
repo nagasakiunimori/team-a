@@ -187,3 +187,7 @@ header a {
     width: 400px;
     background-color:black;
 }
+
+#volumeSlider .slider-selection {
+    background: #BABABA;
+}
