@@ -139,6 +139,7 @@ function BukkenDataLoader() {
         } else if (rawData.tatemono_shubetsu_code == 3) {
             data.bukken_type = "アパート";
         }
+        
 
        // console.log(data.bukken_type);
 

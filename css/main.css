@@ -276,3 +276,7 @@ header a {
     padding: 5px;
     text-align: left;
 }
+
+#ex1Slider .slider-selection {
+	background: #BABABA;
+}

@@ -12,7 +12,6 @@ function App() {
         zoom: 12,
         center: new google.maps.LatLng(35.694668, 139.743212)
     });
-
     // 各インスタンスを作成
     var dataManager = new DataManager();
     var formManager = new FormManager();
@@ -27,7 +26,7 @@ function App() {
      */
     this.watchButtonClicked = function () {
         // 検索ボタンが押されていなければ何もしない
-        if (!formManager.isClicked()) return;
+        if (!formManager.isDarty()) return;
 
         // 入力されている検索条件を取得
         var cond = formManager.getCond();
@@ -52,5 +51,4 @@ function App() {
         heatmap.setMap(map);
     }
 }
-
 var app = new App();
