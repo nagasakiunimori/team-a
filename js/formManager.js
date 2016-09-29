@@ -19,7 +19,7 @@ function FormManager() {
 
     //===================== メソッド =====================//
     this.isDarty = function () {
-        return forms.some(function(e,i,a) {
+        return forms.some(function (e, i, a) {
             return e.isDarty();
         });
     };
@@ -33,7 +33,6 @@ function FormManager() {
                 cond[key] = c[key];
             }
         }
-        console.log(cond);
         return cond;
     }
 }
@@ -42,14 +41,16 @@ function FormSliderNumber(elemId, columnName) {
     var slider;
     var darty = true;
     var num = null;
-    $(function(){slider = $(elemId).slider();});
-    $(function(){
-        slider.on('slide', function() {
+    $(function () {
+        slider = $(elemId).slider();
+    });
+    $(function () {
+        slider.on('slide', function () {
             darty = true;
             num = parseInt(slider.slider('getValue'));
         })
     });
-    this.isDarty = function() {
+    this.isDarty = function () {
         return darty;
     }
     this.getCond = function () {
