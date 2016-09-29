@@ -8,7 +8,7 @@ header {
 }
 
 #wrap {
-        margin-right: auto;
+    margin-right: auto;
     margin-left: auto;
     width: 100%;
     height: 100%;
@@ -83,7 +83,7 @@ content-bar {
     min-width: 200px;
     float: left;
     min-height: 200px;
-    background-color: green;
+    background-color: white;
     padding: 5px;
 }
 
@@ -97,7 +97,6 @@ content-bar {
     border-color: black;
 }
 
-
 #bukkeninfo {
     height: 20%;
     width: 400px;
@@ -106,12 +105,13 @@ content-bar {
 }
 
 ul li {
-     -webkit-flex-grow: 1;
+    -webkit-flex-grow: 1;
     flex-grow: 1;
     width: 50%;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 
 /*
 .list-left {

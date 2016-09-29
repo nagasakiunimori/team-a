@@ -99,7 +99,7 @@ function generateHTMLElement(bukkenInfo) {
 
     var innerHTML = '\
             <div id="tatemono_name" class="tatemono-name"><#tatemono_name></div>\
-            <div id="bukken-image" class="image"></div>\
+            <div id="bukken-image" class="image"><img src="./Img/home.jpg" width="200" height="200"></div>\
             <div id="cotent" class="content-text">\
                 <table class="table">\
                     <tr>\
@@ -148,7 +148,7 @@ function generateHTMLElement_subList(bukkenInfo) {
     element.setAttribute('class', 'tatemono');
 
     var innerHTML = '\
-            <div id="bukken-image" class="image"></div>\
+            <div id="bukken-image" class="image"><img src="./Img/home.jpg" width="200" height="200"></div>\
             <div id="cotent" class="content-text">\
                 <div id="tatemono_name"><#tatemono_name></div>\
                     <div id="otherinfo">築<#chikunensu>年<br>\
