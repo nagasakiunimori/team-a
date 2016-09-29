@@ -38,7 +38,7 @@ function FormSliderNumber(elemId, columnName) {
     var darty = true;
     var num = null;
     $(function () {
-        slider = $(elemId).slider();
+        slider = $(elemId).slider({tooltip: 'always'});
     });
     $(function () {
         slider.on('slide', function () {
