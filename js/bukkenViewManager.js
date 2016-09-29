@@ -25,10 +25,15 @@ function BukkenViewManager(map) {
             pins.push(new Pin(bukkenInfo, map));
         }
         // 検索した物件情報をリストで表示
+        var bukkenCount = 0;
         var subElement = document.getElementById('bukken_subList');
         subElement.innerHTML = '<div>検索した物件</div>';
         for (var bukkenInfo of bukkenInfoList) {
             insertHTMLElement_subList('bukken_subList', generateHTMLElement_subList(bukkenInfo));
+            bukkenCount++;
+            if (bukkenCount > 5) {
+                break;
+            }
         }
 
     }
