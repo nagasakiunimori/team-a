@@ -1,9 +1,5 @@
 function FormManager() {
-    //================== コンストラクタ ==================//
-    var searchButton = document.getElementById('search-button');
-    searchButton.onclick = function () {
-        clicked = true;
-    };
+
     var chikunensu = new FormSliderNumber('#chikunensu', 'chikunensu.to');
     var chinryo_from = new FormSliderNumber('#jogen', 'chinryo.from');
     var chinryo_to = new FormSliderNumber('#kagen', 'chinryo.to');

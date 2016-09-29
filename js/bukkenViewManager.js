@@ -25,8 +25,8 @@ function BukkenViewManager(map) {
             pins.push(new Pin(bukkenInfo, map));
         }
         // 検索した物件情報をリストで表示
-        var subElement = document.getElementById('bukken_subList');
-        subElement.innerHTML = '<div>検索した物件</div>';
+        //var subElement = document.getElementById('bukken_subList');
+        //subElement.innerHTML = '<div>検索した物件</div>';
         for (var bukkenInfo of bukkenInfoList) {
             insertHTMLElement_subList('bukken_subList', generateHTMLElement_subList(bukkenInfo));
         }
@@ -135,35 +135,15 @@ function generateHTMLElement_subList(bukkenInfo) {
     element.setAttribute('class', 'tatemono');
 
     var innerHTML = '\
-            <div id="tatemono_name" class="tatemono-name"><#tatemono_name></div>\
             <div id="bukken-image" class="image"></div>\
             <div id="cotent" class="content-text">\
-                <table class="table">\
-                    <tr>\
-                        <td>築</td>\
-                        <td><#chikunensu></td>\
-                        <td>年</td>\
-                    </tr>\
-                    <tr>\
-                        <td>賃料</td>\
-                        <td><#chinryo></td>\
-                        <td>円</td>\
-                    </tr>\
-                    <tr>\
-                        <td>敷金</td>\
-                        <td><#shikikin></td>\
-                        <td>円</td>\
-                    </tr>\
-                    <tr>\
-                        <td>礼金</td>\
-                        <td><#reikin></td>\
-                        <td>円</td>\
-                    </tr>\
-                    <tr>\
-                        <td>間取り</td>\
-                        <td><#madori></td>\
-                    </tr>\
-                </table>\
+                <div id="tatemono_name"><#tatemono_name></div>\
+                    <div id="otherinfo">築<#chikunensu>年<br>\
+                    賃料<#chinryo>円<br>\
+                    敷金<#shikikin>円<br>\
+                    礼金<#reikin>円<br>\
+                    間取り<#madori>\
+                </div>\
             </div>';
 
     // 物件情報を置換
