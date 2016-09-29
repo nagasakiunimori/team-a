@@ -61,7 +61,7 @@ content-bar {
     height: 100%;
     display: inline-flex;
     justify-content: flex-start;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .tatemono-name {
