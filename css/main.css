@@ -100,7 +100,7 @@ header a {
 .map-embed {
     flex: 20 1 auto;
     height: 99%;
-    min-height: 960px;
+    min-height: 450px;
 }
 
 .list-left {
