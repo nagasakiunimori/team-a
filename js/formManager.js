@@ -2,7 +2,7 @@ function FormManager() {
 
     var chikunensu = new FormSliderNumber('#chikunensu', 'chikunensu.to');
     var chinryo_from = new FormSliderNumber('#jogen', 'chinryo.from');
-    var chinryo_to = new FormSliderNumber('#kagen', 'chinryo.to');
+    var chinryo_to = new FormSliderNumber('#kagen', 'chinryo.from');
     var ekitoho = new FormSliderNumber('#toho', 'ekitoho.to');
     var flore = new FormSliderNumber('#flore', 'flore.from');
     var forms = [
@@ -38,7 +38,7 @@ function FormSliderNumber(elemId, columnName) {
     var darty = true;
     var num = null;
     $(function () {
-        slider = $(elemId).slider();
+        slider = $(elemId).slider({tooltip: 'always'});
     });
     $(function () {
         slider.on('slide', function () {

@@ -26,8 +26,6 @@ function BukkenViewManager(map) {
         }
         // 検索した物件情報をリストで表示
 
-        //var subElement = document.getElementById('bukken_subList');
-        //subElement.innerHTML = '<div>検索した物件</div>';
         var bukkenCount = 0;
         var bukkenInfoListNameSample = [];
         var subElement = document.getElementById('bukken_subList');
@@ -38,7 +36,7 @@ function BukkenViewManager(map) {
                 bukkenInfoListNameSample.push(bukkenInfo.tatemono_name);
                 insertHTMLElement_subList('bukken_subList', generateHTMLElement_subList(bukkenInfo));
                 bukkenCount++;
-                if (bukkenCount > 5) {
+                if (bukkenCount > 3) {
                     break;
                 }
             }
@@ -155,6 +153,7 @@ function generateHTMLElement_subList(bukkenInfo) {
                     賃料<#chinryo>円<br>\
                     敷金<#shikikin>円<br>\
                     礼金<#reikin>円<br>\
+                    駅から<#ekitoho>分<br>\
                     間取り<#madori>\
                 </div>\
             </div>';
