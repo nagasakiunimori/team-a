@@ -29,7 +29,6 @@ function BukkenViewManager(map) {
         var bukkenCount = 0;
         var bukkenInfoListNameSample = [];
         var subElement = document.getElementById('bukken_subList');
-        subElement.innerHTML = '<div>検索した物件</div>';
 
         for (var bukkenInfo of bukkenInfoList) {
             if (bukkenInfoListNameSample.indexOf(bukkenInfo.tatemono_name) == -1) {
@@ -71,7 +70,7 @@ function Pin(bukkenInfo, map) {
     }
 
     /**
-     * 地図上のマーカーがクリックされた際の処理
+     * 地図上のマ7ーカーがクリックされた際の処理
      */
     function onClick() {
         // 物件情報を画面に表示
@@ -90,25 +89,33 @@ function Pin(bukkenInfo, map) {
 /**
  * 物件情報のHTML要素を生成
  */
+ /* HTML要素を、指定したidを持つ要素内に挿入
+ */
+function insertHTMLElement(id, element) {
+    var target = document.getElementById(id);
+    target.appendChild(element);
+}
+
 function generateHTMLElement(bukkenInfo) {
     var element = document.createElement('div');
     element.setAttribute('id', 'bukken');
     element.setAttribute('class', 'tatemono');
 
     var innerHTML = '\
-            <div id="tatemono_name" class="tatemono-name"><#tatemono_name></div>\
             <div id="bukken-image" class="image"><img src="./Img/home.jpg" width="200" height="200"></div>\
             <div id="cotent" class="content-text">\
-                <!div id="otherinfo">\
-                    築<#chikunensu>年<br>\
+                <div id="tatemono_name"><#tatemono_name></div>\
+                <div id="otherinfo">築<#chikunensu>年<br>\
                     賃料<#chinryo>円<br>\
+                    駅から<#ekitoho>分<br>\
+                    地上<#flore>階<br>\
+                    間取り<#madori><br>\
                     敷金<#shikikin>円<br>\
                     礼金<#reikin>円<br>\
-                    駅から<#ekitoho>分<br>\
-                    <#flore>階<br>\
-                    間取り<#madori>\
-                <!/div>\
+                    </div>\
+                </div>\
             </div>';
+
 
     // 物件情報を置換
     innerHTML = innerHTML.replace('<#tatemono_name>', escapeText(bukkenInfo.tatemono_name));
@@ -127,7 +134,7 @@ function generateHTMLElement(bukkenInfo) {
 function generateHTMLElement_subList(bukkenInfo) {
     var element = document.createElement('div');
     element.setAttribute('id', 'bukken_subList');
-    element.setAttribute('class', 'tatemono');
+    element.setAttribute('class', 'tatemono2');
 
     var innerHTML = '\
             <div id="bukken-image" class="image"><img src="./Img/home.jpg" width="200" height="200"></div>\
@@ -135,11 +142,11 @@ function generateHTMLElement_subList(bukkenInfo) {
                 <div id="tatemono_name"><#tatemono_name></div>\
                 <div id="otherinfo">築<#chikunensu>年<br>\
                     賃料<#chinryo>円<br>\
-                    敷金<#shikikin>円<br>\
-                    礼金<#reikin>円<br>\
                     駅から<#ekitoho>分<br>\
                     <#flore>階<br>\
-                    間取り<#madori>\
+                    間取り<#madori><br>\
+                    敷金<#shikikin>円<br>\
+                    礼金<#reikin>円<br>\
                 </div>\
             </div>';
 
@@ -170,15 +177,6 @@ function escapeText(text) {
             '>': '&gt;',
         }[match]
     });
-}
-
-/**
- * HTML要素を、指定したidを持つ要素内に挿入
- */
-function insertHTMLElement(id, element) {
-    var target = document.getElementById(id);
-    target.innerHTML = '<div>選択した物件</div>';
-    target.appendChild(element);
 }
 
 function insertHTMLElement_subList(id, element) {
