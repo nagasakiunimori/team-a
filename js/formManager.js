@@ -1,10 +1,10 @@
 function FormManager() {
 
-    var chikunensu = new FormSliderNumber('#chikunensu', 'chikunensu.to');
-    var chinryo_from = new FormSliderNumber('#jogen', 'chinryo.from');
-    var chinryo_to = new FormSliderNumber('#kagen', 'chinryo.from');
-    var ekitoho = new FormSliderNumber('#toho', 'ekitoho.to');
-    var flore = new FormSliderNumber('#flore', 'flore.from');
+    var chikunensu = new FormSliderNumber('#chikunensu', 'chikunensu.to',5);
+    var chinryo_from = new FormSliderNumber('#jogen', 'chinryo.to',100000);
+    var chinryo_to = new FormSliderNumber('#kagen', 'chinryo.from',50000);
+    var ekitoho = new FormSliderNumber('#toho', 'ekitoho.to',5);
+    var flore = new FormSliderNumber('#flore', 'flore.from',1);
     var forms = [
         chikunensu,
         chinryo_from,
@@ -33,10 +33,11 @@ function FormManager() {
     }
 }
 
-function FormSliderNumber(elemId, columnName) {
+function FormSliderNumber(elemId, columnName,init) {
     var slider;
     var darty = true;
     var num = null;
+    
     $(function () {
         slider = $(elemId).slider({tooltip: 'always'});
     });
@@ -54,6 +55,8 @@ function FormSliderNumber(elemId, columnName) {
         var cond = {};
         if (num !== null) {
             cond[columnName] = num;
+        }else{
+            cond[columnName] = init;
         }
         return cond;
     }
