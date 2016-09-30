@@ -29,7 +29,7 @@ function BukkenViewManager(map) {
         var bukkenCount = 0;
         var bukkenInfoListNameSample = [];
         var subElement = document.getElementById('bukken_subList');
-
+        
         for (var bukkenInfo of bukkenInfoList) {
             if (bukkenInfoListNameSample.indexOf(bukkenInfo.tatemono_name) == -1) {
                 bukkenInfoListNameSample.push(bukkenInfo.tatemono_name);
