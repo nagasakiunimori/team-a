@@ -1,12 +1,20 @@
 @charset "UTF-8";
 header {
-    background-color: aliceblue;
+    background-color: rgba(169, 68, 66, 0.81);
     margin: 0;
     padding: 10px;
     border-bottom: 1px solid #000;
-    width: 15%;
+    width: 100%;
+    margin: auto;
+    margin-right: 0;
 }
 
+#header-title{
+    font-family: serif;
+        font-size: 30px;
+    font-weight: 900;
+    text-align: right;
+}
 body {
     background-color: #464646;
     background-attachment: fixed;
@@ -29,18 +37,30 @@ body {
     margin: 30px auto;
 }
 
-#slidebar {
-    margin-top: 20px;
-    margin-bottom: 5px;
-    width: 300px;
+#horizon {
+    flex-wrap: nowrap;
+}
+
+#slide {
+    margin-left: auto;
+    margin-right: 0;
+    width: 100px;
     display: inline-flex;
 }
 
-.jogeclass {
-    margin-top: 10px;
-    margin-bottom: 15px;
-    width: 100%;
-    float:inherit;
+#slidebar {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    width: 400px;
+    height: 130px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.joken{
+    font-size: 30px;
+    font-weight: 900;
+    font-family: serif;
 }
 
 #volumeSlider .slider-selection {
@@ -70,7 +90,6 @@ content-bar {
 }
 
 .tatemono {
-    margin: 5px;
     text-align: center;
     font-size: 12px;
     padding: 2px;
@@ -81,6 +100,23 @@ content-bar {
     display: inline-flex;
     justify-content: flex-start;
     flex-wrap: nowrap;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.tatemono2 {
+    text-align: center;
+    font-size: 12px;
+    padding: 2px;
+    margin-bottom: 3px;
+    border: solid;
+    border-width: 0px;
+    height: 100%;
+    display: inline-flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .tatemono-name {
@@ -123,39 +159,6 @@ content-bar {
     font-style: italic;
 }
 
-ul li {
-    -webkit-flex-grow: 1;
-    flex-grow: 1;
-    width: 50%;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+#cotent {
+    background-color: white;
 }
-
-
-/*
-.list-left {
-    float: left;
-    width: 80px;
-    padding: 5px;
-    text-align: left;
-}
-
-.list-input {
-    float: left;
-    width: 120px;
-    padding: 5px;
-    text-align: left;
-}
-
-.list-text {
-    width: 96px;
-    padding: 5px;
-}
-
-.list-madori_number {
-    float: left;
-    width: 50px;
-    margin-right: 10px;
-    padding: 5px;
-}
-*/
