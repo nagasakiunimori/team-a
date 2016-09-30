@@ -99,32 +99,15 @@ function generateHTMLElement(bukkenInfo) {
             <div id="tatemono_name" class="tatemono-name"><#tatemono_name></div>\
             <div id="bukken-image" class="image"><img src="./Img/home.jpg" width="200" height="200"></div>\
             <div id="cotent" class="content-text">\
-                <table class="table">\
-                    <tr>\
-                        <td>築</td>\
-                        <td><#chikunensu></td>\
-                        <td>年</td>\
-                    </tr>\
-                    <tr>\
-                        <td>賃料</td>\
-                        <td><#chinryo></td>\
-                        <td>円</td>\
-                    </tr>\
-                    <tr>\
-                        <td>敷金</td>\
-                        <td><#shikikin></td>\
-                        <td>円</td>\
-                    </tr>\
-                    <tr>\
-                        <td>礼金</td>\
-                        <td><#reikin></td>\
-                        <td>円</td>\
-                    </tr>\
-                    <tr>\
-                        <td>間取り</td>\
-                        <td><#madori></td>\
-                    </tr>\
-                </table>\
+                <!div id="otherinfo">\
+                    築<#chikunensu>年<br>\
+                    賃料<#chinryo>円<br>\
+                    敷金<#shikikin>円<br>\
+                    礼金<#reikin>円<br>\
+                    駅から<#ekitoho>分<br>\
+                    <#flore>階<br>\
+                    間取り<#madori>\
+                <!/div>\
             </div>';
 
     // 物件情報を置換
@@ -135,6 +118,7 @@ function generateHTMLElement(bukkenInfo) {
     innerHTML = innerHTML.replace('<#reikin>', bukkenInfo.reikin);
     innerHTML = innerHTML.replace('<#madori>', bukkenInfo.madori);
     innerHTML = innerHTML.replace('<#ekitoho>', bukkenInfo.ekitoho);
+        innerHTML = innerHTML.replace('<#flore>', bukkenInfo.flore);
 
     element.innerHTML = innerHTML;
     return element;
@@ -149,11 +133,12 @@ function generateHTMLElement_subList(bukkenInfo) {
             <div id="bukken-image" class="image"><img src="./Img/home.jpg" width="200" height="200"></div>\
             <div id="cotent" class="content-text">\
                 <div id="tatemono_name"><#tatemono_name></div>\
-                    <div id="otherinfo">築<#chikunensu>年<br>\
+                <div id="otherinfo">築<#chikunensu>年<br>\
                     賃料<#chinryo>円<br>\
                     敷金<#shikikin>円<br>\
                     礼金<#reikin>円<br>\
                     駅から<#ekitoho>分<br>\
+                    <#flore>階<br>\
                     間取り<#madori>\
                 </div>\
             </div>';
@@ -166,7 +151,7 @@ function generateHTMLElement_subList(bukkenInfo) {
     innerHTML = innerHTML.replace('<#reikin>', bukkenInfo.reikin);
     innerHTML = innerHTML.replace('<#madori>', bukkenInfo.madori);
     innerHTML = innerHTML.replace('<#ekitoho>', bukkenInfo.ekitoho);
-
+    innerHTML = innerHTML.replace('<#flore>', bukkenInfo.flore);
     element.innerHTML = innerHTML;
     return element;
 }
